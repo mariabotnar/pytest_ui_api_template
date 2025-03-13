@@ -1,5 +1,3 @@
-from re import search
-
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -10,6 +8,7 @@ class MainPage:
         self.driver = driver
         self.url = 'https://www.kinopoisk.ru/'
         self.search_input_locator = (By.CSS_SELECTOR, "input[name='kp_query']")
+        # не уверена в правильности и необходимости нижнего селектора
         self.get_search_result_locator = (By.CSS_SELECTOR,  "a[data-url='/film/41520']")
 
     def open(self):
