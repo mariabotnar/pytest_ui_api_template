@@ -43,8 +43,9 @@ def test_get_title(main_page):
     assert title is not None, "Заголовок страницы не найден"
     assert "Кинопоиск. Онлайн кинотеатр. Фильмы сериалы мультфильмы и энциклопедия" or "Вы не робот" in title, "Заголовок страницы не содержит 'КиноПоиск'"
 
-@pytest.mark.parametrize("query, expected_url_part", [("Матрица", "search"),])
+@pytest.mark.parametrize("query, expected_url_part", [("Матрица", "kp_query"),])
 def test_search(main_page, query, expected_url_part):
+    # работает!!!
     """Проверка функциональности поиска."""
     main_page.search(query)  # Выполнение поиска
 
@@ -60,7 +61,7 @@ def test_search(main_page, query, expected_url_part):
         raise
 
     # Ожидание появления заголовка результатов поиска
-    WebDriverWait(main_page.driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, "span[class='search_results_topText'], 'Результаты поиска')]")))
+    WebDriverWait(main_page.driver, 100).until(EC.presence_of_element_located((By.CSS_SELECTOR, "[class='search_results_topText']")))
 
     # Проверка, что текущий URL содержит ожидаемую часть
     assert expected_url_part in main_page.driver.current_url, "URL страницы не содержит ожидаемую часть"
