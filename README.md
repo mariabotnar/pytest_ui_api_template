@@ -42,7 +42,6 @@
       - test_UI
     - .gitignore
     - __init__py
-    - config.py
     - README.md
     - requirements.txt
 
