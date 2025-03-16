@@ -1,8 +1,9 @@
 import logging
 import pytest
 from pytest_ui_api_template.API.MovieAPI import MovieAPI
-from pytest_ui_api_template.API.config import BASE_URL
-from pytest_ui_api_template.API.config import API_KEY
+#from MovieAPI import MovieAPI
+from config import BASE_URL
+from config import API_KEY
 
 
 @pytest.fixture

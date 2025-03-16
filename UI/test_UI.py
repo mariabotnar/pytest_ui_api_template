@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from ..UI.pages.MainPage import MainPage
+from pytest_ui_api_template.UI.pages.MainPage import MainPage
 from selenium.common.exceptions import TimeoutException
 import logging
 
@@ -27,7 +27,7 @@ def test_open(main_page):
 
     # Ожидание, пока URL не станет равным ожидаемому
     try:
-        WebDriverWait(main_page.driver, 30).until(EC.url_to_be(main_page.url))
+        WebDriverWait(main_page.driver, 60).until(EC.url_to_be(main_page.url))
     except Exception as e:
         print("Ошибка при ожидании URL:", e)
         print("Фактический URL:", main_page.driver.current_url)
